@@ -1,0 +1,89 @@
+.nascosto, hr {
+    clear: none;
+    height: 0;
+    left: -10000px;
+    overflow: hidden;
+    position: absolute;
+    top: -10000px;
+    width: 0;
+}
+body {
+    background: none repeat scroll 0 0 #fff;margin:0; padding:0;
+}
+iframe{background-color: #FFFFFF;}
+h1, h2{margin:0; padding:0;}
+#page {
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    min-width: 990px;
+    position: relative;
+    width: 95%;
+}
+/***msg javascript disattivati****/
+#avvisoJavascript {width:760px;border:2px dashed #900;text-align:center;margin:6px auto;padding:0 0 0 -380px; background-color:#fff}
+#avvisoJavascript p{color:#000; text-align:center;padding:6px 10px;}
+#avvisoJavascript p strong {font-weight:bold}
+
+
+/* inizio portalHeader */
+#portalHeader{background:#4B82A8 url(http://dev-intracom.comune.torino.it/ris/utheme/global/themes/xstructureV1/css/im/globalPortal/sfondo_portalbanner.jpg) 1px 0 repeat-x;min-height:50px; height:auto!important;height:50px; }
+#portalHeader h1{background:transparent url(im/coto/contabiliacoto.png) 12px 1px no-repeat; min-height:48px; height:auto!important; height:48px;}
+/* #sx{position:absolute; top:0px; left:15px; width:188px; background:transparent url(im/globalPortal/logo_sire.png) no-repeat;min-height:50px; height:auto!important;height:50px; top: 26px;} */
+
+/* inizio portalFooter */
+#portalFooter{background-color:#FFF; text-align:right; color:#FFF; font-size:1.1em; margin:16px 0 0 0; padding:0;}
+#portalFooter p{padding:6px 10px; font-weight: bold;}
+#portalFooterTop{background-color:#255585;}
+#portalFooterTop a, #portalFooterTop a:link, #portalFooterTop a:visited, #portalFooterTop a:hover{color:#FFF;}
+#portalFooterBottom{/* background:#FFF url(im/globalPortal/sfondo_footer.jpg) 1px 0 repeat-x; */ background-color:#255585; min-height:89px; height:auto!important;height:89px; padding:0; color:#FFF;}
+
+/* widget per cambiare la dimensione al font (accessibilità) */
+div#dim_font{ background: none repeat scroll 0 0 #CCCCCC; height:22px; text-align: right; padding:2px 0;}	/* contenitore globale widget */
+div#dim_font div#more, div#dim_font div#less { cursor:pointer; width: 22px; height: 22px; float: right; } /* elementi comuni alle icone di comando dimensione font */
+div#dim_font div#more{ background:url("http://dev-intracom.comune.torino.it/ris/utheme/global/themes/xstructureV1/css/im/globalPortal/format_font_size_more.png") no-repeat 0 0; }	/* icona aumento font */
+div#dim_font div#less{ background:url("http://dev-intracom.comune.torino.it/ris/utheme/global/themes/xstructureV1/css/im/globalPortal/format_font_size_less.png") no-repeat 0 0; }	/* icona diminuzione font */
+div#dim_font div#txt_dim_font{ float:right; padding:3px 4px 0 0; font-size: 11px;} /* testo descrittivo che non deve cambiare dimensione (forzato a 11px) */
+
+div#applicationHeader {
+    float: left;
+    left: 250px;
+    position: absolute;
+    top: 10px;
+    height: auto !important;
+    min-height: 1.35em;
+    text-align: right;
+}
+div#applicationHeader h2 {
+    color: #19477B;
+    font-size: 1.7em;
+    font-weight: bold;
+    text-shadow: 2px 2px 3px #DC8301;
+    margin: 0;
+    padding: 0px 45px 0 150px;
+}
+
+
+
+
+
+
+
+/*a.toggle_open, a.toggle_close {
+ background-position: -24px -96px;
+    background-image: url("im/glyphicons-halflings.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 14px;
+    line-height: 11px;
+	margin-left: 10px;
+    margin-top: 1px;
+    vertical-align: text-middle;
+    width: 14px;
+	text-decoration:none;
+	
+   
+}
+a.toggle_open {
+ background-position: 0 -96px;
+    background-image: url("im/glyphicons-halflings.png");}*/
+a.toggle_open strong, a.toggle_close strong{display:none}

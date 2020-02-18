@@ -1,0 +1,75 @@
+
+#box-center{
+float:none !important;
+display:block;
+margin:auto;
+}
+
+#box-account{
+display:table;
+border:0 !important; 
+width:100%; 
+margin:auto;
+}
+
+#box-account h3, #box-account h2{ margin:20px 5px;}
+#box-account .well{ font-size:18px; margin:5px; margin-bottom:20px; color:#333333;}
+
+#box-account ul.lista-account{ float: left; margin:0 !important; background: transparent; display:table;}
+#box-account ul.lista-account li{ vertical-align:bottom; margin:0; padding:0; float: left; width:50%; display:table-cell; font-size:23px;}
+#box-account ul.lista-account li a{font-size:22px; line-height: 30px; display:block; color:#fff !important; margin:5px; min-height:150px;position: relative; }
+
+#box-account ul.lista-account li a:hover{color:#fff !important;}
+
+.tlt-Account{
+/* display: table-cell; */
+height: 100%;
+margin: auto 0;
+vertical-align: middle;
+width: 85%;
+padding:4%;
+}
+ 
+/* .arr-Account{
+display: table-cell;
+height: 100%;
+margin:0;
+padding:0;
+width: 15%;
+background: rgba(255,255,255,0.2);
+}
+ */
+.arr-Account{
+/*   display: table-cell; */
+  height: 150px;
+  margin: 0;
+  padding: 0;
+  width: 5%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: rgba(255,255,255,0.2); 
+  
+  }
+.arr-Account:after{
+/* content:"";
+width: 0px;
+height: 0px;
+border-style: solid;
+border-width:20px 0 20px 20px;
+border-color: transparent transparent transparent #fff; */
+
+}
+
+ 
+/* colori vari */
+#box-account ul.lista-account li:nth-child(1) a{ background:#f89406;}
+#box-account ul.lista-account li:nth-child(2) a{ background:#9A4489;}
+#box-account ul.lista-account li:nth-child(3) a{ background:#95a424;}
+#box-account ul.lista-account li:nth-child(4) a{ background:#0D98C9;}
+#box-account ul.lista-account li:nth-child(5) a{ background:#8F2929;}
+#box-account ul.lista-account li:nth-child(6) a{ background:#6288ba;}
+#box-account ul.lista-account li:nth-child(7) a{ background:#C1372F;}
+#box-account ul.lista-account li:nth-child(8) a{ background:#E8A723;}
+#box-account ul.lista-account li:nth-child(9) a{ background:#225680;}
+#box-account ul.lista-account li:nth-child(10) a{ background:#504762;}

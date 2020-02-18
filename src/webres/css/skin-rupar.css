@@ -1,0 +1,96 @@
+div#portalHeader, div#portalHeader_title, #portalHeader_title h1 a {
+    height: auto !important;
+    min-height: 30px;
+}
+div#portalHeader {
+    background: url("http://dev-www.ruparpiemonte.it/ris/css/im/banner_corto.jpg") no-repeat scroll 0 100% #FFFFFF;
+    padding: 0;
+}
+div#portalHeader_title {
+    background: url("http://dev-www.ruparpiemonte.it/ris/css/im/banner_titolo.png") no-repeat scroll 150px 0 transparent;
+    float: none;
+    width: 100%;
+}
+#portalHeader_title h1 a:hover, #portalHeader_title h1 a:active {
+    background-position: 227px 0 !important;
+}
+div#applicationHeader {
+    background: none repeat scroll 0 0 #F1F1F1;
+    color: #FFFFFF;
+	background: url("im/contabilia.jpg") no-repeat 0 0 #5C6D81;
+}
+div#applicationHeader.with_image {
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    padding-left: 170px;
+}
+div#applicationHeader h2 {
+   /* background: none repeat scroll 0 0 #5C6D81;
+   background-color:#5C6D81;*/
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 0;
+	margin:0;
+    padding: 3px 10px 0 178px;
+}
+div#applicationHeader h2:first-letter {
+    font-size: 1.01em !important;
+}
+div#applicationHeader h2.with_subtitle {
+    font-size: 3em;
+    letter-spacing: 1px;
+}
+.nascosto, hr {
+    clear: none;
+    height: 0;
+    left: -10000px;
+    overflow: hidden;
+    position: absolute;
+    top: -10000px;
+    width: 0;
+}
+
+div#portalFooter div.clearer {
+    clear: both;
+}
+div#portalFooter {
+    background: none repeat scroll 0 0 #666666;
+    clear: both;
+    color: #E1E1E1;
+    font-size: 0.95em;
+    height: auto !important;
+    min-height: 0;
+    overflow: hidden !important;
+    padding: 5px 0;
+    width: 100%;
+}
+div#portalFooter a {
+    color: #FFFFFF;
+    font-weight: normal;
+}
+div#portalFooter div.riferimentiPortale strong, div#portalFooter div.riferimentiPortale span {
+    display: block;
+}
+div#portalFooter div.riferimentiPortale strong a {
+    font-weight: bold;
+}
+div#portalFooter div.riferimentiPortale, div.numeroVerde {
+    float: left;
+    padding-left: 0;
+    width: 30%;
+}
+div#portalFooter div.boxDX {
+    float: right;
+    width: 20%;
+}
+
+ div.contentPage{background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #A8B1B8;
+    margin-bottom: 8px;
+	 padding: 15px 15px 7px;
+   }
+   
+   
+   a.toggle_open strong, a.toggle_close strong {
+    display: none;
+}
