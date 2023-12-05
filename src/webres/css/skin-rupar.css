@@ -1,3 +1,7 @@
+/*
+*SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+*SPDX-License-Identifier: EUPL-1.2
+*/
 div#portalHeader, div#portalHeader_title, #portalHeader_title h1 a {
     height: auto !important;
     min-height: 30px;

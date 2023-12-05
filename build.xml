@@ -1,51 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
 <project basedir="." default="default" name="siacrepapp" xmlns:ivy="antlib:fr.jayasoft.ivy.ant">
 	<!-- -->
 	<property file="buildfiles/build.properties" />
 	<property environment="env" />
-
-	<!-- -->
-	<!-- ############################################################# -->
-	<!-- # internal target: resolve-dependencies                     # -->
-	<!-- ############################################################# -->
-	<!-- -->
-	<target name="resolve-dependencies" description="configurazione di ivy">
-		<tstamp />
-		<ivy:configure file="${buildfiles}/ivyconf.xml" />
-		<ivy:resolve file="${buildfiles}/ivy.xml" conf="runtime,provided,siacrepitf" transitive="false" />
-	</target>
-
-	<target name="resolve-dependencies-itf" description="configurazione di ivy">
-		<tstamp />
-		<ivy:configure file="${buildfiles}/ivyconf.xml" />
-		<ivy:resolve file="${buildfiles}/ivy.xml" conf="runtime,provided" transitive="false" />
-	</target>
-
-	<!-- -->
-	<!-- ############################################################# -->
-	<!-- # internal target: load-dependencies                        # -->
-	<!-- ############################################################# -->
-	<!-- -->
-	<target name="load-dependencies" description="carica le dipendenze tramite ivy" depends="resolve-dependencies">
-		<tstamp />
-		<ivy:retrieve pattern="${build.lib}/[conf]/[artifact].[ext]" conf="runtime,provided,dev,siacrepitf" />
-	</target>
-
-	<target name="load-dependencies-itf" description="carica le dipendenze tramite ivy" depends="resolve-dependencies-itf">
-		<tstamp />
-		<ivy:retrieve pattern="${build.lib}/[conf]/[artifact].[ext]" conf="runtime,provided" />
-		
-		<mkdir dir="${build.lib}/siacrepitf" />
-	</target>
-
-	<!-- -->
-	<!-- ############################################################# -->
-	<!-- # internal target: load-local-dependencies                  # -->
-	<!-- ############################################################# -->
-	<!-- -->
-	<target name="load-local-dependencies" description="carica le dipendenze tramite ivy" depends="resolve-dependencies">
-		<tstamp />
-		<ivy:retrieve pattern="${local.lib}/[conf]/[artifact].[ext]" conf="runtime,provided,test,src" />
-	</target>
 
 	<!-- -->
 	<!-- ############################################################# -->
@@ -82,7 +43,7 @@
 			<param name="target" value="tst" />
 		</antcall>
 		<antcall target="distribution">
-			<param name="target" value="coll" />
+			<param name="target" value="coll-01" />
 		</antcall>
 		<antcall target="distribution">
 			<param name="target" value="prod" />
@@ -98,46 +59,18 @@
 		<tstamp>
 			<format property="ANNO-COPYRIGHT" pattern="yyyy" />
 		</tstamp>
-		<!-- -->
-		<property environment="env" />
 
+		<property environment="env" />
 		<condition property="target" value="dev">
 			<equals arg1="${target}" arg2="$${target}" />
 		</condition>
-		<!-- -->
+
 		<echo message=" target: ${target}" />
-		<!-- -->
+
 		<loadproperties srcFile="buildfiles/${target}.properties" />
 		<loadproperties srcFile="buildfiles/build.properties" />
-		<!-- -->
+
 		<property name="dist-target" value="${dist}/${target}" />
-		<property name="archives-target" value="${archives}/${target}" />
-		<property name="temp-target" value="${temp}/${target}" />
-		<property name="conf-target" value="${temp-target}/conf" />
-		<property name="src-web-target" value="${temp-target}/src-web" />
-		<!-- -->
-		<property name="classes" value="${classes}" />
-		<property name="classes-itf" value="${classes}/classes-itf" />
-		<!-- -->
-		<!-- -->
-		<property name="manifest-dir" value="${temp-target}/manifests" />
-		<!-- -->
-		<property name="ear-manifest-dir" value="${manifest-dir}/ear" />
-		<property name="web-manifest-dir" value="${manifest-dir}/web" />
-
-
-		<!-- Aggiunta per gestione pacchetti sql e schema dei report birt -->
-		<property name="reports" value="${temp-target}/reports" />
-
-
-		<path id="class.path">
-			<!--<fileset dir="${build.lib}/dev" />-->
-			<fileset dir="${build.lib}/provided" />
-			<fileset dir="${build.lib}/runtime" />
-			<fileset dir="${build.lib}/siacrepitf" />
-			<!-- <fileset file="${build.lib}/siac*itf.jar" />  --> 
-		</path>
-
 	</target>
 
 	<!-- -->
@@ -146,8 +79,9 @@
 	<!-- ############################################################# -->
 	<!-- -->
 	<target name="_create-tree-structure" description="crea la struttura di cartelle necessarie al build" >
-		<delete dir="${temp}" />
-		<mkdir dir="${dist}" />
+    <delete dir="${dist}/temp/siac" />
+		<mkdir dir="${dist-target}" />
+    <mkdir dir="${dist}/temp/siac" />
 	</target>
 
 	<!-- -->
@@ -155,17 +89,18 @@
 	<!-- # public target: distribution                               # -->
 	<!-- ############################################################# -->
 	<!-- -->
-	<target name="distribution" description="Costruisce il tar per la distribuzione." >
-		<delete failonerror="no">
-			<fileset dir="${dist}" includes="**/*.*" />
-		</delete>
-		<antcall target="packages-zip" />
-		
-	</target>
+	<target name="distribution" description="Costruisce il tar per la distribuzione." depends="clean-all, packages-zip"></target>
 
-	<!-- depends="init, replace-placeholders" --> 
-	<target name="packages-zip" description="Costruisce lo zip con le risorse statiche " depends="_create-tree-structure, init">
-		<zip destfile="${dist}/${zip-outfilename}" basedir="${src-web}/" update="true" />
+	<!-- -->
+	<!-- ############################################################# -->
+	<!-- # target: packages                                          # -->
+	<!-- ############################################################# -->
+	<!-- -->
+	<target name="packages-zip" description="Costruisce lo zip con le risorse statiche " depends="init, _create-tree-structure">
+    <copy todir="${dist}/temp/siac" overwrite="true">
+			<fileset dir="${src-web}/" />
+		</copy>
+		<zip destfile="${dist-target}/${zip-outfilename}" basedir="${dist}/temp" update="true" />
 	</target>
 
 	<!-- -->
@@ -176,32 +111,13 @@
 	<target name="clean-dist" description="Rimuove la cartella delle distribuzioni.">
 		<delete dir="${dist}" />
 	</target>
-	
-		
-	<!-- -->
-	<!-- ############################################################# -->
-	<!-- # public target: clean-archives                             # -->
-	<!-- ############################################################# -->
-	<!-- -->
-	<target name="clean-archives" description="Rimuove la cartella degli archivi (war, ear, ...).">
-		<delete dir="${build}/archives" />
-	</target>
-
-	<!-- -->
-	<!-- ############################################################# -->
-	<!-- # public target: clean-temp                                 # -->
-	<!-- ############################################################# -->
-	<!-- -->
-	<target name="clean-temp" description="Rimuove la cartella dei files temporanei di build.">
-		<delete dir="${temp}" />
-	</target>
 
 	<!-- -->
 	<!-- ############################################################# -->
 	<!-- # public target: clean-all                                  # -->
 	<!-- ############################################################# -->
 	<!-- -->
-	<target name="clean-all" description="Rimuove tutte le cartelle temporanee." depends="clean-dist, clean-archives,clean-temp" />
+	<target name="clean-all" description="Rimuove tutte le cartelle temporanee." depends="clean-dist" />
 
 	<!-- -->
 	<!-- ############################################################# -->
@@ -252,6 +168,4 @@
 			<arg value="-projecthelp" />
 		</java>
 	</target>
-
-
 </project>

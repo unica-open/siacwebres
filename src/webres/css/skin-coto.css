@@ -1,3 +1,7 @@
+/*
+*SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+*SPDX-License-Identifier: EUPL-1.2
+*/
 .nascosto, hr {
     clear: none;
     height: 0;
@@ -37,7 +41,7 @@ h1, h2{margin:0; padding:0;}
 #portalFooterTop a, #portalFooterTop a:link, #portalFooterTop a:visited, #portalFooterTop a:hover{color:#FFF;}
 #portalFooterBottom{/* background:#FFF url(im/globalPortal/sfondo_footer.jpg) 1px 0 repeat-x; */ background-color:#255585; min-height:89px; height:auto!important;height:89px; padding:0; color:#FFF;}
 
-/* widget per cambiare la dimensione al font (accessibilità) */
+/* widget per cambiare la dimensione al font (accessibilitï¿½) */
 div#dim_font{ background: none repeat scroll 0 0 #CCCCCC; height:22px; text-align: right; padding:2px 0;}	/* contenitore globale widget */
 div#dim_font div#more, div#dim_font div#less { cursor:pointer; width: 22px; height: 22px; float: right; } /* elementi comuni alle icone di comando dimensione font */
 div#dim_font div#more{ background:url("http://dev-intracom.comune.torino.it/ris/utheme/global/themes/xstructureV1/css/im/globalPortal/format_font_size_more.png") no-repeat 0 0; }	/* icona aumento font */

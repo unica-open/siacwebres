@@ -1,4 +1,56 @@
-div#portalHeader, div#portalHeader_title, #portalHeader_title h1 a {
+/*
+*SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
+*SPDX-License-Identifier: EUPL-1.2
+*/
+/*integrazione nuovo banner 'serviziOnline' */
+
+
+div#portalHeader {
+
+    background: #fff url(im/sfondo_header.svg) no-repeat 0 0 !important;
+    background-size: auto;
+    background-size: cover !important;
+    width: auto;
+    display: block;
+    padding-left:20px;
+
+}
+
+div#portalHeader_title {
+
+    padding-left:0 !important;
+    padding-right:0 !important;
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+    width: 100% !important;
+
+}
+
+div#portalHeader_title h1 {
+    padding:0;
+    margin:0;
+}
+
+div#portalHeader_title a {
+
+    background-image: url(im/logo.svg) !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important;
+    height: 28px;
+    width: 100%;
+    margin: 0;
+    background-size: contain; 
+    display: block;
+    padding: 0;
+
+    text-indent: 9999999999999px;
+}
+
+
+/*fine integrazione nuovo banner 'serviziOnline' */
+
+
+/* div#portalHeader, div#portalHeader_title, #portalHeader_title h1 a {
     height: auto !important;
     min-height: 30px;
 }
@@ -7,7 +59,10 @@ div#portalHeader_title h1 { margin: 0; padding: 0; font-size: 25px;}
 div#portalHeader_title h1 a:link, 
 div#portalHeader_title h1 a:active, 
 div#portalHeader_title h1 a:visited,
-div#portalHeader_title h1 a:hover{ color: #0153A9;text-decoration:none;  font-size: 25px;  line-height: 20px;   padding-left: 10px;}
+div#portalHeader_title h1 a:hover{ color: #0153A9;text-decoration:none;  font-size: 25px;  line-height: 20px;   padding-left: 10px;} */
+
+
+
 
 div#portalFooter div.clearer {clear: both;}
 div.footerBox {
